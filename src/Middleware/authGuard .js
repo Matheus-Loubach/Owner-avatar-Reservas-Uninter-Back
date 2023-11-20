@@ -20,7 +20,6 @@ const authGuard = async (req, res, next) => {
         
         // Adicionar informações do usuário autenticado à requisição (req)
         req.user = await User.findById(verified.id).select("-password");
-   
         // Chamar o próximo middleware
         next();
     } catch (err) {

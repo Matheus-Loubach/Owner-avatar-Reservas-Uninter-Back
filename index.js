@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const connectDB = require("./DB/connect");
+const connectDB = require("./src/DB/connect.js");
 
 app.use(cors());
 app.use(express.json());
@@ -11,7 +11,7 @@ app.disable('x-powered-by');
 connectDB();
 
 // Routers
-const routes = require("./Routes/router");
+const routes = require("./src/Routes/router.js");
 app.use('/api', routes);
 
 // Middleware de tratamento de erros global
